@@ -25,17 +25,17 @@ import "ace-builds/src-noconflict/mode-typescript";
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/mode-scss";
+import { bootCode } from '../utilities/utils';
 
 type CodeAreaProps = {
     language: string;
-    onCodeChange: (code: string) => void;
     theme: string;
     icon: string;
     background?: string;
     currentPadding?: string;
 }
 
-const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon, background, currentPadding }) => {
+const CodeArea: React.FC<CodeAreaProps> = ({ language,  theme, icon, background, currentPadding }) => {
 
 
     const [width, setWidth] = useState(1000)
@@ -44,7 +44,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
     // @ts-ignore
     const handleResize = (event, direction, ref, position) => {
         const newHeight = ref.style.height;
-        setHeight(parseInt(newHeight,10));
+        setHeight(parseInt(newHeight, 10));
 
     }
 
@@ -59,6 +59,14 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
     }, [])
 
 
+    const [title, setTitle] = useState("");
+    const [codeVal, setCodeVal] = useState(bootCode);
+
+    const handleCodeChange = (newCode:string) => { 
+        setCodeVal(newCode);
+    };
+
+
     return (
 
         <Resizable
@@ -70,8 +78,8 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
             className="resizable_container relative"
             style={{ background: background }}
         >
-            <div className ='' style={{ padding: currentPadding }} >
-                <div className =' h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80  rounded-xl'>
+            <div className='' style={{ padding: currentPadding }} >
+                <div className=' h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80  rounded-xl'>
 
                     <div className='flex gap-1 items-center'>
                         <div className='w-3 h-3 rounded-full bg-[#FF5656]'></div>
@@ -80,12 +88,12 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
                     </div>
 
                     <div className='w-full rounded-tr-lg rounded-tl-lg'>
-                        <input type="text" placeholder={"Untitled"} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center' />
+                        <input type="text" placeholder={"Untitled"} value={title} onChange={(e)=>setTitle(e.target.value)} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center' />
                     </div>
 
                     <div className='flex items-center justify-center p-[3px]  bg-black bg-opacity-30 rounded-md'>
                         <div className='w-[20px] h-[20px] flex items-center justify-center'>
-                            <img src={icon} alt="lang_icon" className=' max-h-fit' />
+                            <img src={icon} alt="lang_icon" className='w-[38px]  max-h-fit h-[40px]' />
                             {/* https://www.svgrepo.com/svg/224788/coding-programming-language */}
                         </div>
                     </div>
@@ -103,9 +111,8 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
                     height={`calc(${height}px - ${currentPadding} - ${currentPadding} - 52px)`}
                     highlightActiveLine={false}
                     editorProps={{ $blockScrolling: true }}
-                    value={`function onLoad(params) {
-    console.log("i've loaded");
-}`}
+                    value={codeVal}
+                    onChange={handleCodeChange}
                     setOptions={{
                         enableBasicAutocompletion: true,
                         enableLiveAutocompletion: true,

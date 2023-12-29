@@ -12,8 +12,8 @@ export const languagesSupported = [
         icon: "icons/python.svg"
     },
     {
-        name: "Dart",
-        icon: "icons/dart.svg"
+        name: "Go",
+        icon: "icons/golang.svg"
     },
     {
         name: "CPP",
@@ -69,3 +69,23 @@ export const backgrounds = [
 
 
 export const paddings  = ["1rem", "2rem", "3rem", "4rem"];
+
+
+export const bootCode = `
+3  - 1  // -> 2
+3  + 1  // -> 4
+'3' - 1  // -> 2
+'3' + 1  // -> '31'
+
+'' + '' // -> ''
+[] + [] // -> ''
+{} + [] // -> 0
+[] + {} // -> '[object Object]'
+{} + {} // -> '[object Object][object Object]'
+
+'222' - - '111' // -> 333
+
+[4] * [4]       // -> 16
+[] * []         // -> 0
+[4, 4] * [4, 4] // NaN
+` ;
