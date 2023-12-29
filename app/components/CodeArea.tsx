@@ -68,8 +68,9 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
             defaultSize={{ width: width, height: height || 500 }}
             onResize={handleResize}
             className="resizable_container relative"
+            style={{ background: background }}
         >
-            <div className=''>
+            <div className='' >
                 <div className=' h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80 '>
 
                     <div className='flex gap-1 items-center'>
@@ -84,7 +85,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
 
                     <div className='flex items-center justify-center p-[3px]  bg-black bg-opacity-30 rounded-md'>
                         <div className='w-[20px] h-[20px] flex items-center justify-center'>
-                            <img src={icon} alt="lang_icon" className=' max-h-fit' /> 
+                            <img src={icon} alt="lang_icon" className=' max-h-fit' />
                             {/* https://www.svgrepo.com/svg/224788/coding-programming-language */}
                         </div>
                     </div>
