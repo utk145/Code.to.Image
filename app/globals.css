@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background: #0D0D0D;
+    color: #848484;
+}
+
+.aceEditor_container {
+    width: 100% !important;
+}
+
+.ace_scrollbar {
+    display: none !important;
+}
+
+.ace_editor {
+    background-color: rgba(0, 0, 0, .5);
+    border-top: none;
+    border: 2px solid rgba(249, 249, 249, .08);
+    border-bottom-left-radius: 0.5rem;
+    font-weight: 500 !important;
+    font-size: 17px !important;
+    line-height: 1.5rem !important;
+    border-bottom-right-radius: 0.5rem;
+    box-shadow: 2px 3px 10px rgba(60, 0, 0, .2);
+}
+
+.ace_content {
+    width: 100% !important
+        /* to override the existing styles*/
+    ;
+    top: 12px !important;
+    left: 12px !important;
+}
+
+.ace_scroller {
+    width: 100% !important;
+}
+
+.dropdown_lang {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: .25rem .3rem .3rem .5rem;
+    height: 37px;
+    border-radius: 3px;
+    font-size: .9rem;
+    border: 1px solid rgba(249, 249, 249, .08);
+    cursor: pointer;
+}
