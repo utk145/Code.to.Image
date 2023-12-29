@@ -5,7 +5,8 @@ import BgThemeDropdown from "./components/BgThemeDropdown";
 import CodeArea from "./components/CodeArea";
 import CodeColorDropdown from "./components/CodeColorDropdown";
 import LanguageDropdown from "./components/LanguageDropdown";
-import { codeColors, languagesSupported, backgrounds } from "./utilities/utils";
+import PaddingSelector from "./components/PaddingSelector";
+import { codeColors, languagesSupported, backgrounds, paddings } from "./utilities/utils";
 
 export default function Home() {
 
@@ -13,6 +14,8 @@ export default function Home() {
   const [languageIcon, setLanguageIcon] = useState(languagesSupported[0]?.icon)
   const [theme, settheme] = useState(codeColors[0]);
   const [bg, setBg] = useState(backgrounds[0])
+  const [padding, setPadding] = useState(paddings);
+  const [currentPadding, setCurrentPadding] = useState(padding[2]);
 
 
   return (
@@ -21,9 +24,10 @@ export default function Home() {
         <LanguageDropdown language={language} setLanguage={setLanguage} setActiveIcon={setLanguageIcon} />
         <CodeColorDropdown color={theme} setColor={settheme} />
         <BgThemeDropdown background={bg} setBackground={setBg} />
+        <PaddingSelector padding={padding} currentPadding={currentPadding} setCurrentPadding={setCurrentPadding}/>
       </header>
-      <div className="code-editing-space mt-[10rem]">
-        <CodeArea language={language} icon={languageIcon} theme={theme}  background={bg}/>
+      <div className="code-editing-space mt-[10rem] mb-[10rem]">
+        <CodeArea language={language} icon={languageIcon} theme={theme} background={bg} currentPadding={currentPadding} />
       </div>
     </main>
   )

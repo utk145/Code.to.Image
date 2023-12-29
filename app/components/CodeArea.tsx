@@ -44,7 +44,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
     // @ts-ignore
     const handleResize = (event, direction, ref, position) => {
         const newHeight = ref.style.height;
-        setHeight(parseInt(newHeight));
+        setHeight(parseInt(newHeight,10));
 
     }
 
@@ -70,8 +70,8 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
             className="resizable_container relative"
             style={{ background: background }}
         >
-            <div className='' >
-                <div className=' h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80 '>
+            <div className ='' style={{ padding: currentPadding }} >
+                <div className =' h-[52px] px-4 flex items-center justify-between bg-black bg-opacity-80  rounded-xl'>
 
                     <div className='flex gap-1 items-center'>
                         <div className='w-3 h-3 rounded-full bg-[#FF5656]'></div>
@@ -100,6 +100,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
                     wrapEnabled={true}
                     showPrintMargin={false}
                     showGutter={false}
+                    height={`calc(${height}px - ${currentPadding} - ${currentPadding} - 52px)`}
                     highlightActiveLine={false}
                     editorProps={{ $blockScrolling: true }}
                     value={`function onLoad(params) {
@@ -112,7 +113,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, onCodeChange, theme, icon
                         showLineNumbers: true,
                         tabSize: 2,
                     }}
-                    className="aceEditor_container"
+                    className="aceEditor_container rounded-xl"
                 />
 
             </div>
