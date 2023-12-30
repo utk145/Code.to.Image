@@ -25,7 +25,7 @@ import "ace-builds/src-noconflict/mode-typescript";
 import "ace-builds/src-noconflict/mode-html";
 import "ace-builds/src-noconflict/mode-css";
 import "ace-builds/src-noconflict/mode-scss";
-import { bootCode } from '../utilities/utils';
+import { bootCode, entensions } from '../utilities/utils';
 
 type CodeAreaProps = {
     language: string;
@@ -88,7 +88,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, theme, icon, background, 
                     </div>
 
                     <div className='w-full rounded-tr-lg rounded-tl-lg'>
-                        <input type="text" placeholder={"Untitled"} value={title} onChange={(e) => setTitle(e.target.value)} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center'
+                        <input type="text" placeholder={"Untitled"} value={title + entensions(language)} onChange={(e) => setTitle(e.target.value)} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center'
                             style={{
                                 lineHeight: "1.8rem",
                             }}

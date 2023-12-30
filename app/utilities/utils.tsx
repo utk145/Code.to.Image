@@ -68,7 +68,7 @@ export const backgrounds = [
 ];
 
 
-export const paddings  = ["1rem", "2rem", "3rem", "4rem"];
+export const paddings = ["1rem", "2rem", "3rem", "4rem"];
 
 
 export const bootCode = `
@@ -89,3 +89,44 @@ export const bootCode = `
 [] * []         // -> 0
 [4, 4] * [4, 4] // NaN
 ` ;
+
+
+
+export const entensions = (language: string) => {
+    switch (language) {
+        case "JavaScript":
+            return ".js"
+            break;
+        case "Java":
+            return ".java"
+            break;
+        case "Python":
+            return ".py"
+            break;
+        case "Go":
+            return ".go"
+            break;
+        case "CPP":
+            return ".cpp"
+            break;
+        case "TypeScript":
+            return ".ts"
+            break;
+        case "HTML":
+            return ".html"
+            break;
+        case "CSS":
+            return ".css"
+            break;
+        case "SCSS":
+            return ".scss"
+            break;
+        case "JSON":
+            return ".json"
+            break;
+
+        default:
+            return ".js";
+            break;
+    }
+}
