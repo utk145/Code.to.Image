@@ -55,7 +55,7 @@ export default function Home() {
           </button>
         </div>
       </header>
-      <div className="mt-[10rem]" ref={editorRef}>
+      <div className="mt-[10rem]" ref={editorRef  as React.MutableRefObject<HTMLDivElement | null>}>
         <CodeArea language={language} icon={languageIcon} theme={theme} background={bg} currentPadding={currentPadding} />
       </div>
       <Footer />
