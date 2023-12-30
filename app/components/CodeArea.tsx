@@ -93,7 +93,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language,  theme, icon, background,
 
                     <div className='flex items-center justify-center p-[3px]  bg-black bg-opacity-30 rounded-md'>
                         <div className='w-[20px] h-[20px] flex items-center justify-center'>
-                            <img src={icon} alt="lang_icon" className='w-[38px]  max-h-fit h-[40px]' />
+                            <img src={icon} alt="lang_icon" className='w-[38px]  max-h-fit ' />
                             {/* https://www.svgrepo.com/svg/224788/coding-programming-language */}
                         </div>
                     </div>
