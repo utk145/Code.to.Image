@@ -66,6 +66,17 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, theme, icon, background, 
         setCodeVal(newCode);
     };
 
+    const [extension, setextension] = useState(".js")
+    useEffect(() => {
+        // Update the extension when the language changes
+        setextension(entensions(language));
+    }, [language]);
+
+    const handleTitleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        // Extract the title without the extension
+        const newTitle = e.target.value.split(".")[0];
+        setTitle(newTitle);
+    };
 
     return (
 
@@ -88,7 +99,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language, theme, icon, background, 
                     </div>
 
                     <div className='w-full rounded-tr-lg rounded-tl-lg'>
-                        <input type="text" placeholder={"Untitled"} value={title + entensions(language)} onChange={(e) => setTitle(e.target.value)} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center'
+                        <input type="text" placeholder={"Untitled"} value={`${title}${extension}`} onChange={(e) => handleTitleChange(e)} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center'
                             style={{
                                 lineHeight: "1.8rem",
                             }}
