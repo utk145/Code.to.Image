@@ -35,7 +35,7 @@ type CodeAreaProps = {
     currentPadding?: string;
 }
 
-const CodeArea: React.FC<CodeAreaProps> = ({ language,  theme, icon, background, currentPadding }) => {
+const CodeArea: React.FC<CodeAreaProps> = ({ language, theme, icon, background, currentPadding }) => {
 
 
     const [width, setWidth] = useState(1000)
@@ -62,7 +62,7 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language,  theme, icon, background,
     const [title, setTitle] = useState("");
     const [codeVal, setCodeVal] = useState(bootCode);
 
-    const handleCodeChange = (newCode:string) => { 
+    const handleCodeChange = (newCode: string) => {
         setCodeVal(newCode);
     };
 
@@ -88,7 +88,11 @@ const CodeArea: React.FC<CodeAreaProps> = ({ language,  theme, icon, background,
                     </div>
 
                     <div className='w-full rounded-tr-lg rounded-tl-lg'>
-                        <input type="text" placeholder={"Untitled"} value={title} onChange={(e)=>setTitle(e.target.value)} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center' />
+                        <input type="text" placeholder={"Untitled"} value={title} onChange={(e) => setTitle(e.target.value)} className='w-full  text-[hsla(0,0%,100%,.6)] bg-transparent border-none outline-none font-medium text-center'
+                            style={{
+                                lineHeight: "1.8rem",
+                            }}
+                        />
                     </div>
 
                     <div className='flex items-center justify-center p-[3px]  bg-black bg-opacity-30 rounded-md'>
